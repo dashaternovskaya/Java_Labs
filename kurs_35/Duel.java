@@ -52,16 +52,16 @@ public class Duel {
         resultInSec = (double)(endTimeInMSec - startTimeInMSec)/1000;
 
         // Статистика для отладки --------------------------------------------------------------
-        System.out.println("startTimeInMSec = " + startTimeInMSec);
-        System.out.println("endTimeInMSec = " + endTimeInMSec);
-        System.out.println("resultInMSec = " + (endTimeInMSec - startTimeInMSec));
-        System.out.println("resultInSec = " + resultInSec);
-        System.out.println("_pointVicinityInMSec = " + _accuracyInMSec);
-        System.out.println("_pointVicinityInSeC = " + _accuracyInMSec/1000);
-
-        System.out.println("Math.abs(resultInSec - _heart) = " + Math.abs(resultInSec - _heart));
-        System.out.println("Math.abs(resultInSec - _head)  = " + Math.abs(resultInSec - _head));
-        System.out.println("Math.abs(resultInSec - _belly) = " + Math.abs(resultInSec - _belly));
+//        System.out.println("startTimeInMSec = " + startTimeInMSec);
+//        System.out.println("endTimeInMSec = " + endTimeInMSec);
+//        System.out.println("resultInMSec = " + (endTimeInMSec - startTimeInMSec));
+//        System.out.println("resultInSec = " + resultInSec);
+//        System.out.println("_pointVicinityInMSec = " + _accuracyInMSec);
+//        System.out.println("_pointVicinityInSeC = " + _accuracyInMSec/1000);
+//
+//        System.out.println("Math.abs(resultInSec - _heart) = " + Math.abs(resultInSec - _heart));
+//        System.out.println("Math.abs(resultInSec - _head)  = " + Math.abs(resultInSec - _head));
+//        System.out.println("Math.abs(resultInSec - _belly) = " + Math.abs(resultInSec - _belly));
         // --------------------------------------------------------------------------------------
 
         if (Math.abs(resultInSec - _heart) <= _accuracyInMSec/1000) {
