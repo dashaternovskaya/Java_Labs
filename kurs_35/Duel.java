@@ -44,7 +44,7 @@ public class Duel {
         long endTimeInMSec = 0;  // Конец раунда (мс)
         double resultInSec;  // Результат (сек)  = (Конец раунда (мс) - Начало раунда (мс)) / 1000
 
-        System.out.println("I challenge " + currentPlayer.getName() +  " to a duel! Press ENTER to shoot.");
+        System.out.println("I challenge " + currentPlayer.getName() +  " to a duel! Press ENTER in 5, 8 or 15 Sec to shoot the Opponent.");
         startTimeInMSec = System.currentTimeMillis();
 
         if(sc.nextLine().strip().equals(""))
@@ -106,13 +106,11 @@ public class Duel {
 
     // Сохранение победителя и результата в файл "Table.ser"
     public static void saveWinnerScoreTable(WinnerScoreTable table) {
-        try {
+        try (FileOutputStream fileOutputStream = new FileOutputStream("/Users/DashaT/IdeaProjects/Labs_Semester_6/src/kurs_35/Table.ser");
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
             // Создаем 2 потока для сериализации объекта и сохранения его в файл
             // FileOutputStream записывает данные в файл, а ObjectOutputStream преобразует объект в байты.
-            FileOutputStream outputStream = new FileOutputStream("/Users/DashaT/IdeaProjects/Labs_Semester_6/src/kurs_35/Table.ser");
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(table);  // Сохраняем таблицу в файл
-            objectOutputStream.close();  // Закрываем поток и освобождаем ресурсы
         }
         catch (IOException e) {
             System.out.println("Winner and Score cannot be saved.");
@@ -121,9 +119,8 @@ public class Duel {
 
     // Загрузка результатов предыдущих матчей из файла "Table.ser", печать таблицы результатов
     public static WinnerScoreTable loadWinnerScoreTable() {
-        try {
-            FileInputStream fileInputStream = new FileInputStream("/Users/DashaT/IdeaProjects/Labs_Semester_6/src/kurs_35/Table.ser");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        try (FileInputStream fileInputStream = new FileInputStream("/Users/DashaT/IdeaProjects/Labs_Semester_6/src/kurs_35/Table.ser");
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
             WinnerScoreTable table = (WinnerScoreTable) objectInputStream.readObject();  // Загрузка результатов предыдущих матчей из файла "Table.ser"
             table.displayTable();  // Печать таблицы результатов
             return table;
