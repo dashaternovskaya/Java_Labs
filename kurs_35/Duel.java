@@ -14,7 +14,7 @@ public class Duel {
         System.out.println("\nPlease, choose Difficulty:");
         System.out.println("1 – Low \n2 – Medium \n3 – Hard");
         Scanner sc = new Scanner(System.in);
-        _difficulty = sc.next();
+        _difficulty = sc.nextLine();
         // Если пользователь не ввел уровень сложности (от 1 до 3), устанавливается уровень по умолчанию (1 – Low)
         if (!(_difficulty.equals("1") | _difficulty.equals("2") | _difficulty.equals("3"))) {
             _difficulty = "1";
