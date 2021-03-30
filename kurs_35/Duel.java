@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class Duel {
     private static String _difficulty;  // Выбранный уровень сложности
     private static double _accuracyInMSec;  // Допустимая погрешность в мс (зависит от выбранного уровня сложности)
-    private final static int _heart = 15;
-    private final static int _head = 8;
-    private final static int _belly = 5;
+    private final static int _HEART = 15;
+    private final static int _HEAD = 8;
+    private final static int _BELLY = 5;
 
     public static void chooseDifficulty() {
         System.out.println("\nPlease, choose Difficulty:");
@@ -44,7 +44,7 @@ public class Duel {
         long endTimeInMSec = 0;  // Конец раунда (мс)
         double resultInSec;  // Результат (сек)  = (Конец раунда (мс) - Начало раунда (мс)) / 1000
 
-        System.out.println("I challenge " + currentPlayer.getName() +  " to a duel! Press ENTER in 5, 8 or 15 Sec to shoot the Opponent.");
+        System.out.println("I challenge " + currentPlayer.getName() +  " to a Duel! Press ENTER in 5, 8 or 15 Sec to shoot the Opponent.");
         startTimeInMSec = System.currentTimeMillis();
 
         if(sc.nextLine().strip().equals(""))
@@ -59,19 +59,19 @@ public class Duel {
 //        System.out.println("_pointVicinityInMSec = " + _accuracyInMSec);
 //        System.out.println("_pointVicinityInSeC = " + _accuracyInMSec/1000);
 //
-//        System.out.println("Math.abs(resultInSec - _heart) = " + Math.abs(resultInSec - _heart));
-//        System.out.println("Math.abs(resultInSec - _head)  = " + Math.abs(resultInSec - _head));
-//        System.out.println("Math.abs(resultInSec - _belly) = " + Math.abs(resultInSec - _belly));
+//        System.out.println("Math.abs(resultInSec - _HEART) = " + Math.abs(resultInSec - _HEART));
+//        System.out.println("Math.abs(resultInSec - _HEAD)  = " + Math.abs(resultInSec - _HEAD));
+//        System.out.println("Math.abs(resultInSec - _BELLY) = " + Math.abs(resultInSec - _BELLY));
         // --------------------------------------------------------------------------------------
 
-        if (Math.abs(resultInSec - _heart) <= _accuracyInMSec/1000) {
-            return _heart;
+        if (Math.abs(resultInSec - _HEART) <= _accuracyInMSec/1000) {
+            return _HEART;
         }
-        else if (Math.abs(resultInSec - _head) <= _accuracyInMSec/1000) {
-            return _head;
+        else if (Math.abs(resultInSec - _HEAD) <= _accuracyInMSec/1000) {
+            return _HEAD;
         }
-        else if (Math.abs(resultInSec - _belly) <= _accuracyInMSec/1000) {
-            return _belly;
+        else if (Math.abs(resultInSec - _BELLY) <= _accuracyInMSec/1000) {
+            return _BELLY;
         }
         else
             return 0;
